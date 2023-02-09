@@ -3,30 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muhammedemincaglar <muhammedemincaglar@    +#+  +:+       +#+        */
+/*   By: mcaglar <Mcaglar@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 12:20:03 by mcaglar           #+#    #+#             */
-/*   Updated: 2023/02/08 15:12:11 by muhammedemi      ###   ########.fr       */
+/*   Created: 2023/02/09 10:47:55 by mcaglar           #+#    #+#             */
+/*   Updated: 2023/02/09 10:53:36 by mcaglar          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-    int counter;
+	int	counter;
 
-    counter = 0;
-    while (str[counter] != '\0')
-    {
-        write(1, &str[counter], 1);
-        counter++;
-    }
-    
-}
-
-int main()
-{
-    char *sentence = "ABBBAS";
-    ft_putstr(sentence);
+	counter = 0;
+	while (str[counter] != '\0')
+	{
+		write(1, &str[counter], 1);
+		counter++;
+	}
 }

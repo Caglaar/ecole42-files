@@ -3,30 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muhammedemincaglar <muhammedemincaglar@    +#+  +:+       +#+        */
+/*   By: mcaglar <Mcaglar@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 11:52:49 by mcaglar           #+#    #+#             */
-/*   Updated: 2023/02/08 15:16:57 by muhammedemi      ###   ########.fr       */
+/*   Created: 2023/02/09 11:01:51 by mcaglar           #+#    #+#             */
+/*   Updated: 2023/02/09 11:05:48 by mcaglar          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdio.h>
-
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-    int counter;
+	int	counter;
 
-    counter = 0;
-    while(str[counter] != '\0')
-    {
-        counter++;
-    }
-    return counter;
-}
-int main ()
-{
-    char *sentences = "";
-    int sayac = ft_strlen(sentences);
-    printf("%d",sayac);
+	counter = 0;
+	while (str[counter] != '\0')
+	{
+		counter++;
+	}
+	return (counter);
 }

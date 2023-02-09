@@ -1,30 +1,29 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcaglar <Mcaglar@student.42kocaeli.com.tr  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/09 11:08:45 by mcaglar           #+#    #+#             */
+/*   Updated: 2023/02/09 11:12:38 by mcaglar          ###   ########.tr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_rev_int_tab(int *tab, int size)
+void	ft_rev_int_tab(int *tab, int size)
 {
-    int counter;
-    int container;
-    int size_copy;
+	int	counter;
+	int	container;
+	int	size_copy;
 
-    counter = 0;
-    size_copy = size;
-    while(counter < (size / 2))
-    {
-        container = tab[counter];
-        tab[counter] = tab[size_copy-1];
-        tab[size_copy-1] = container;
-        counter++;
-        size_copy--;
-    }
-}
-int main ()
-{
-    int tab[7]={0,1,2,3,4,5,6};
-    int size = 7;
-    ft_rev_int_tab(tab,size);
-    for (int  i = 0; i < size; i++)
-    {
-        printf("%d\n",tab[i]);
-    }
-    
+	counter = 0;
+	size_copy = size;
+	while (counter < (size / 2))
+	{
+		container = tab[counter];
+		tab[counter] = tab[size_copy - 1];
+		tab[size_copy - 1] = container;
+		counter++;
+		size_copy--;
+	}
 }
