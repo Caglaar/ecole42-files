@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcaglar <mcaglar@student.42kocaeli.com.tr  +#+  +:+       +#+        */
+/*   By: mcaglar <Mcaglar@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 15:02:34 by mcaglar           #+#    #+#             */
-/*   Updated: 2023/07/05 17:43:15 by mcaglar          ###   ########.tr       */
+/*   Created: 2023/07/05 12:47:44 by mcaglar           #+#    #+#             */
+/*   Updated: 2023/07/05 12:52:49 by mcaglar          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	int	leng;
-	int	i;
+	char	*arr;
 
-	i = 0;
-	leng = 0;
-	while (s[i] != '\0')
+	arr = (char *)s;
+	while (n > 0)
 	{
-		leng++;
-		i++;
+		*arr = 0;
+		arr++;
+		n--;
 	}
-	return (leng);
 }

@@ -6,7 +6,7 @@
 /*   By: mcaglar <mcaglar@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:15:17 by mcaglar           #+#    #+#             */
-/*   Updated: 2023/07/04 13:51:23 by mcaglar          ###   ########.tr       */
+/*   Updated: 2023/07/05 17:45:55 by mcaglar          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(const char *nptr)
 	container = 0;
 	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
-	while (nptr[i] == '-' || nptr[i] == '+')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
 			sign *= -1;
