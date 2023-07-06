@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcaglar <Mcaglar@student.42kocaeli.com.tr  +#+  +:+       +#+         #
+#    By: mcaglar <m>                                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 17:12:59 by mcaglar           #+#    #+#              #
-#    Updated: 2023/07/05 17:13:51 by mcaglar          ###   ########.tr        #
+#    Updated: 2023/07/06 14:45:47 by mcaglar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 FLAG = -Wall -Wextra -Werror
 SRC = $(shell find . ! -name "ft_lst*.c" -name "ft_*.c")
+BONUS = $(shell find . -name "ft_lst*.c")
 OBJ = $(SRC:.c=.o)
 
 
@@ -20,6 +21,9 @@ all: $(NAME)
 
 $(NAME):
 	gcc $(FLAG) -c $(SRC)
+	ar rc $(NAME) *.o
+bonus:
+	gcc $(FLAG) -c $(BONUS)
 	ar rc $(NAME) *.o
 clean:
 	/bin/rm -f  *.o
