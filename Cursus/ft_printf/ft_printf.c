@@ -6,7 +6,7 @@
 /*   By: mcaglar <m>                                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 11:52:14 by mcaglar           #+#    #+#             */
-/*   Updated: 2023/07/15 12:09:27 by mcaglar          ###   ########.fr       */
+/*   Updated: 2023/07/15 12:56:46 by mcaglar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,23 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		leng;
 	int		counter;
+	int		tmp;
 
-	counter = 0;
+	counter = -1;
 	leng = 0;
 	va_start(args, str);
-	while (str[counter] != '\0')
+	while (str[++counter] != '\0')
 	{
 		if (str[counter] == '%' && ft_check(str[counter + 1]))
 		{
-			leng += ft_format(&args, str[counter + 1]);
-			counter++;
+			tmp = ft_format(&args, str[++counter]);
+			if (tmp == -1)
+				return (-1);
+			leng += tmp - 1;
 		}
-		else if (str[counter] != '%')
-			leng += ft_putchar(str[counter]);
-		counter++;
+		else if (ft_putchar(str[counter]) == -1)
+			return (-1);
+		leng++;
 	}
 	va_end(args);
 	return (leng);
