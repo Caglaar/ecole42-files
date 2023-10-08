@@ -28,7 +28,7 @@ static void	explore_map(char **map, t_control *control, int y, int x)
 	explore_map(map, control, y, x - 1);
 }
 
-void	map_control5(t_so_long *s, char	**map)
+void	map_dc_control(t_so_long *s, char	**map)
 {
 	t_control	control;
 
@@ -52,7 +52,7 @@ void	map_control5(t_so_long *s, char	**map)
 	}
 }
 
-void	map_control2(char *str, t_so_long *s)
+void	map_string_control(char *str, t_so_long *s)
 {
 	int		fd;
 	char	*line;
@@ -70,7 +70,7 @@ void	map_control2(char *str, t_so_long *s)
 	tmp_map = ft_strdup("");
 	while (line)
 	{
-		s->map_height++;
+		map_widht_control(s, line);
 		tmp_tmp_map = ft_strjoin(tmp_map, line);
 		free(line);
 		free(tmp_map);
@@ -78,5 +78,15 @@ void	map_control2(char *str, t_so_long *s)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	map_controls2(s, tmp_map);
+	map_make(s, tmp_map);
+}
+
+void	map_widht_control(t_so_long *s, char *line)
+{
+	int	leng;
+
+	leng = ft_strlen(line);
+	if (leng != s->map_width)
+		return (ft_printf("\nWidht ERROR!!!\n"), exit(1));
+	s->map_height++;
 }

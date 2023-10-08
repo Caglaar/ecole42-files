@@ -12,14 +12,14 @@
 
 #include "so_long.h"
 
-void	map_control(char *str, t_so_long *s)
+void	map_ber_control(char *str, t_so_long *s)
 {
 	int	len;
 
 	len = ft_strlen(str);
 	if (str[len - 1] == 'r' && str[len -2] == 'e'
 		&& str[len - 3] == 'b' && str[len - 4] == '.')
-		map_control2(str, s);
+		map_string_control(str, s);
 	else
 	{
 		ft_printf("Wrong map name");
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	s.count_step = 0;
 	if (argc == 2)
 	{
-		map_control(argv[1], &s);
+		map_ber_control(argv[1], &s);
 		map_shows1(&s);
 	}
 	else

@@ -57,12 +57,13 @@ typedef struct s_control
 	int	the_amount_of_coins_we_can_reach;
 }	t_control;
 
-void	map_control5(t_so_long *s, char	**map);
-void	map_control4(t_so_long *s, int x, int y);
-void	map_control3(t_so_long *s, int x, int y);
-void	map_controls2(t_so_long *s, char *tmp_map);
-void	map_control2(char *str, t_so_long *s);
-void	map_control(char *str, t_so_long *s);
+void	map_widht_control(t_so_long *s, char *line);
+void	map_dc_control(t_so_long *s, char	**map);
+void	map_travel(t_so_long *s, int x, int y);
+void	map_side_control(t_so_long *s, int x, int y);
+void	map_make(t_so_long *s, char *tmp_map);
+void	map_string_control(char *str, t_so_long *s);
+void	map_ber_control(char *str, t_so_long *s);
 void	player_movement(t_so_long *s, int x, int y);
 void	check_door(t_so_long *s, int a, int b);
 void	charackter_show(t_so_long *s, char c);
@@ -70,7 +71,6 @@ void	game_over(int a, t_so_long *s);
 int		movement(int key, t_so_long *s);
 void	open_win(t_so_long *s, int x, int y);
 void	map_shows1(t_so_long *s);
-void	map_control4(t_so_long *s, int x, int y);
 void	game_end(t_so_long *s);
 void	free_map(t_so_long *s);
 int		hollmovement(t_so_long *s);
