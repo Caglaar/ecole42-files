@@ -14,6 +14,7 @@ SRC				=	so_long.c \
 						free.c \
 						movement.c \
 
+
 LIBFT_PATH		=	./libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
 
@@ -21,15 +22,15 @@ MINILIBX_PATH		=	./minilibx
 
 all:				$(NAME)
 
-$(NAME):			$(LIBFT) mlx
-					$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(LIBFT) -framework OpenGL -framework AppKit -L$(MINILIBX_PATH) -lmlx
+$(NAME):			$(LIBFT) $(SRC) libmlx.a
+					$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(LIBFT) -framework OpenGL -framework AppKit libmlx.a -Lminilibx
 
 $(LIBFT):
 					make -C $(LIBFT_PATH) all
 
-
-mlx:
+libmlx.a:
 					make -C $(MINILIBX_PATH) all
+					mv $(MINILIBX_PATH)/libmlx.a .
 
 clean:
 					make -C $(LIBFT_PATH) clean
