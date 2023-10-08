@@ -59,21 +59,14 @@ void	map_string_control(char *str, t_so_long *s)
 	char	*tmp_map;
 	char	*tmp_tmp_map;
 
-	fd = open(str, O_RDONLY);
-	if (fd < 0)
-		return (ft_printf("Error\nFile not opened!!!\n"), exit(1));
-	line = get_next_line(fd);
-	if (!line)
-		return (ft_printf("Error\nEmpty Map!!!\n"), close(fd), exit(1));
-	s->map_width = ft_strlen(line);
-	s->map_height = 1;
+	line = config_map(s, &fd, str);
 	tmp_map = ft_strdup("");
+	if (!tmp_map)
+		return (ft_printf("Malloc ERROR\n"), close(fd), exit(1));
 	while (line)
 	{
-		map_widht_control(s, line);
 		tmp_tmp_map = ft_strjoin(tmp_map, line);
-		free(line);
-		free(tmp_map);
+		map_widht_control(s, line, tmp_map);
 		tmp_map = tmp_tmp_map;
 		line = get_next_line(fd);
 	}
@@ -81,7 +74,30 @@ void	map_string_control(char *str, t_so_long *s)
 	map_make(s, tmp_map);
 }
 
-void	map_widht_control(t_so_long *s, char *line)
+char	*config_map(t_so_long *s, int *fd, char *str)
+{
+	char	*line;
+
+	*fd = open(str, O_RDONLY);
+	if (*fd < 0)
+	{
+		ft_printf("Error\nFile not Openned!!!\n");
+		close(*fd);
+		exit(1);
+	}
+	line = get_next_line(*fd);
+	if (!line)
+	{
+		ft_printf("Error\nEmpty Map!!!\n");
+		close(*fd);
+		exit(1);
+	}
+	s->map_width = ft_strlen(line);
+	s->map_height = 1;
+	return (line);
+}
+
+void	map_widht_control(t_so_long *s, char *line, char *tmp_map)
 {
 	int	leng;
 
@@ -89,4 +105,6 @@ void	map_widht_control(t_so_long *s, char *line)
 	if (leng != s->map_width)
 		return (ft_printf("\nWidht ERROR!!!\n"), exit(1));
 	s->map_height++;
+	free(line);
+	free(tmp_map);
 }

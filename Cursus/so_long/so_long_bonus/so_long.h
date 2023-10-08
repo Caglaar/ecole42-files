@@ -57,7 +57,7 @@ typedef struct s_control
 	int	the_amount_of_coins_we_can_reach;
 }	t_control;
 
-void	map_widht_control(t_so_long *s, char *line);
+void	map_widht_control(t_so_long *s, char *line, char *tmp_map);
 void	map_dc_control(t_so_long *s, char	**map);
 void	map_travel(t_so_long *s, int x, int y);
 void	map_side_control(t_so_long *s, int x, int y);
@@ -73,6 +73,7 @@ void	open_win(t_so_long *s, int x, int y);
 void	map_shows1(t_so_long *s);
 void	game_end(t_so_long *s);
 void	free_map(t_so_long *s);
+char	*config_map(t_so_long *s, int *fd, char *str);
 int		hollmovement(t_so_long *s);
 
 #endif
