@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcaglar <mcaglar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 12:21:39 by mcaglar           #+#    #+#             */
-/*   Updated: 2023/10/07 12:21:42 by mcaglar          ###   ########.fr       */
+/*   Created: 2023/10/07 12:21:15 by mcaglar           #+#    #+#             */
+/*   Updated: 2023/10/07 16:53:40 by mcaglar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ void	map_dc_control(t_so_long *s, char	**map)
 {
 	t_control	control;
 
-	if (!map)
-		free_map(s);
 	control.is_the_door_accessible = 0;
 	control.the_amount_of_coins_we_can_reach = 0;
 	explore_map(map, &control, s->player_y, s->player_x);
