@@ -56,7 +56,7 @@ void	map_shows1(t_so_long *s)
 	b = 0;
 	s->mlx_ptr = mlx_init();
 	s->mlx_win = mlx_new_window(s->mlx_ptr, (s->map_width - 1) * P,
-			(s->map_height - 1) * P, "Forest");
+			(s->map_height - 1) * P, "PACMAN By Caglaar");
 	s->playerimg = mlx_xpm_file_to_image(s->mlx_ptr,
 			"textures/char_right.xpm", &a, &b);
 	s->background = mlx_xpm_file_to_image(s->mlx_ptr,
