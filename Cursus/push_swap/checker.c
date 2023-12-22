@@ -72,7 +72,7 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	if (argc >= 2)
 	{
-		str_list = add_to_list(argc, argv, &arg);
+		str_list = select_add_list(argc, argv, &arg);
 		check_arguments(str_list, &arg);
 		init_stack_a(&a, str_list);
 		str = get_next_line(0);
