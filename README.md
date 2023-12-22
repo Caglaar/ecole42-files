@@ -7,3 +7,4 @@ All 42 Ecole Projects
 - Born2Beroot
 - minitalk
 - so_long
+- push_swap
